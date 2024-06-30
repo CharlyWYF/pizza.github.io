@@ -10,18 +10,19 @@
 </head>
 
 <body>
+    <!-- Navigation Bar -->
     <header class="navbar">
-                <div class="logo">
-                    <img src="https://img.picui.cn/free/2024/06/30/66815ddb79098.png" alt="Pizza UNO Logo">
-                </div>
-                <div class="nav-items">
-                    <button class="Delivery active">Delivery</button>
-                    <button class="Pickup" onclick="showComingSoon()">PICKUP</button>
-                    <button class="Curbside" onclick="showComingSoon()">CURBSIDE</button>
-                    <button class="Dine-in" onclick="showComingSoon()">DINE-IN</button>
-                </div>
+        <div class="logo">
+            <img src="https://img.picui.cn/free/2024/06/30/66815ddb79098.png" alt="Pizza UNO Logo">
+        </div>
+        <div class="nav-items">
+            <button class="Delivery active">Delivery</button>
+            <button class="Pickup" onclick="showComingSoon()">PICKUP</button>
+            <button class="Curbside" onclick="showComingSoon()">CURBSIDE</button>
+            <button class="Dine-in" onclick="showComingSoon()">DINE-IN</button>
+        </div>
         <div class="search-container">
-            <input type="text" class="search-bar" placeholder=" Search...">
+            <input type="text" class="search-bar" placeholder="Search...">
             <button class="search-button"><img src="https://img.icons8.com/ios-filled/50/000000/search--v1.png"
                     alt="Search"></button>
         </div>
@@ -32,11 +33,10 @@
                 <a href="#" onclick="switchLanguage('zh')">中文</a>
             </div>
         </div>
-
-
         <button class="dark-mode-switch">🌙</button>
     </header>
 
+    <!-- Coming Soon Modal -->
     <div id="coming-soon-modal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="hideComingSoon()">&times;</span>
@@ -45,9 +45,10 @@
         </div>
     </div>
 
+    <!-- Carousel Section -->
     <div class="carousel">
         <img src="https://phprodcmsimages.blob.core.windows.net/phprodcmsimages/phd/cmsimages/imagestemp/desktop/AE/homepage/desi_licious_en.png"
-            alt="Promotion 1" class="carousel-image">
+            alt="Promotion 1" class="carousel-image active">
         <img src="https://phprodcmsimages.blob.core.windows.net/phprodcmsimages/phd/cmsimages/imagestemp/desktop/AE/homepage/hut30_new_ens.png"
             alt="Promotion 2" class="carousel-image">
         <img src="https://phprodcmsimages.blob.core.windows.net/phprodcmsimages/phd/cmsimages/imagestemp/desktop/AE/homepage/2largepizzas_en.png"
@@ -59,8 +60,9 @@
         </div>
     </div>
 
-
+    <!-- Main Content -->
     <main class="content">
+        <!-- Menu Section -->
         <section class="menu">
             <h2 class="menu-title">Top Picks</h2>
             <div class="product-list">
@@ -258,12 +260,14 @@
             </div>
         </section>
 
+        <!-- Shopping Cart Section -->
         <aside class="shopping-cart">
             <div class="cart-header">
                 <h2>Shopping Cart</h2>
                 <span class="cart-count">(3 items)</span>
             </div>
             <div class="cart-items">
+                <!-- Cart Item -->
                 <div class="cart-item">
                     <img src="https://phprodcmsimages.blob.core.windows.net/phprodcmsimages/phd/cmsimages/imagestemp/AE/homepage/home-en-520101-UAE.png"
                         alt="Pizza 1">
@@ -274,44 +278,41 @@
                             <button class="quantity-decrease">-</button>
                             <span class="quantity">1</span>
                             <button class="quantity-increase">+</button>
-
                             <button class="cart-item-remove">x</button>
                         </div>
                     </div>
                 </div>
                 <!-- Repeat for more items -->
+                <!-- ... -->
             </div>
             <div class="cart-summary">
                 <div class="subtotal">
                     <span>Subtotal:</span>
-                    <span>$30.00</span>
+                    <span>AED 30.00</span>
                 </div>
                 <div class="tax">
                     <span>Tax:</span>
-                    <span>$3.00</span>
+                    <span>AED 3.00</span>
                 </div>
                 <div class="total">
                     <span>Total:</span>
-                    <span>$33.00</span>
+                    <span>AED 33.00</span>
                 </div>
                 <button class="checkout" onclick="showServiceUnavailable()">Checkout</button>
-
             </div>
-            
         </aside>
 
-<div id="service-unavailable-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-button" onclick="hideServiceUnavailable()">&times;</span>
-        <h2>Service temporarily unavailable</h2>
-        <p>This feature is currently unavailable. Please try again later.</p>
-    </div>
-</div>
-
-
-
+        <!-- Service Unavailable Modal -->
+        <div id="service-unavailable-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="hideServiceUnavailable()">&times;</span>
+                <h2>Service temporarily unavailable</h2>
+                <p>This feature is currently unavailable. Please try again later.</p>
+            </div>
+        </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Pizza UNO. All rights reserved.</p>
     </footer>

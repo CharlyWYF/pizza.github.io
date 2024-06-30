@@ -1,13 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Toggle dark mode
     const darkModeSwitch = document.querySelector('.dark-mode-switch');
     darkModeSwitch.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
+        document.querySelector('.navbar').classList.toggle('dark-mode');
+        document.querySelector('.footer').classList.toggle('dark-mode');
+        document.querySelector('.menu').classList.toggle('dark-mode');
+        document.querySelector('.shopping-cart').classList.toggle('dark-mode');
+        document.querySelectorAll('.search-bar').forEach(el => el.classList.toggle('dark-mode'));
+        document.querySelectorAll('.language-switch-container').forEach(el => el.classList.toggle('dark-mode'));
+        document.querySelectorAll('.language-dropdown a').forEach(el => el.classList.toggle('dark-mode'));
+        document.querySelectorAll('.modal-content').forEach(el => el.classList.toggle('dark-mode'));
+        document.querySelectorAll('.cart-item').forEach(el => el.classList.toggle('dark-mode'));
+        document.querySelectorAll('.product-item').forEach(el => el.classList.toggle('dark-mode'));
+        document.querySelectorAll('.menu-title, .product-title, .product-price, .add-button').forEach(el => el.classList.toggle('dark-mode'));
     });
 
+    // Carousel functionality
     const images = document.querySelectorAll('.carousel img');
     const indicators = document.querySelectorAll('.carousel .indicator');
     let currentIndex = 0;
 
+    // Function to show next image in the carousel
     const showNextImage = () => {
         const previousIndex = currentIndex;
         currentIndex = (currentIndex + 1) % images.length;
@@ -28,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     indicators[currentIndex].classList.add('active');
     setInterval(showNextImage, 3000);
 
+    // Add click event listeners to carousel indicators
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
             if (index !== currentIndex) {
@@ -61,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Function to add an item to the cart
     const addItemToCart = (title, price, imgSrc) => {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
@@ -80,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         cartItemsContainer.appendChild(cartItem);
 
-        // Add event listeners for the new cart item buttons
+        // Add event listeners for quantity increase and decrease buttons
         cartItem.querySelector('.quantity-increase').addEventListener('click', () => {
             const quantityElement = cartItem.querySelector('.quantity');
             let quantity = parseInt(quantityElement.textContent);
@@ -97,41 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Add event listener for remove button
         cartItem.querySelector('.cart-item-remove').addEventListener('click', () => {
             cartItem.remove();
             updateCart();
         });
     };
 
-    // Update quantity and total calculation
-    document.querySelectorAll('.quantity-increase').forEach(button => {
-        button.addEventListener('click', () => {
-            const quantityElement = button.previousElementSibling;
-            let quantity = parseInt(quantityElement.textContent);
-            quantityElement.textContent = ++quantity;
-            updateCart();
-        });
-    });
-
-    document.querySelectorAll('.quantity-decrease').forEach(button => {
-        button.addEventListener('click', () => {
-            const quantityElement = button.nextElementSibling;
-            let quantity = parseInt(quantityElement.textContent);
-            if (quantity > 1) {
-                quantityElement.textContent = --quantity;
-                updateCart();
-            }
-        });
-    });
-
-    document.querySelectorAll('.cart-item-remove').forEach(button => {
-        button.addEventListener('click', () => {
-            const cartItem = button.closest('.cart-item');
-            cartItem.remove();
-            updateCart();
-        });
-    });
-
+    // Update cart totals and quantities
     const updateCart = () => {
         let subtotal = 0;
         document.querySelectorAll('.cart-item').forEach(item => {
@@ -149,34 +138,41 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     updateCart(); // Initial calculation
+
+    // Modal functionality
+    window.onclick = function (event) {
+        const comingSoonModal = document.getElementById('coming-soon-modal');
+        const serviceUnavailableModal = document.getElementById('service-unavailable-modal');
+        if (event.target === comingSoonModal) {
+            comingSoonModal.style.display = 'none';
+        }
+        if (event.target === serviceUnavailableModal) {
+            serviceUnavailableModal.style.display = 'none';
+        }
+    };
 });
 
-// 显示弹窗
+// Function to show "Coming Soon" modal
 function showComingSoon() {
     document.getElementById('coming-soon-modal').style.display = 'flex';
 }
 
-// 隐藏弹窗
+// Function to hide "Coming Soon" modal
 function hideComingSoon() {
     document.getElementById('coming-soon-modal').style.display = 'none';
 }
 
-// 点击窗口外部隐藏弹窗
-window.onclick = function (event) {
-    var modal = document.getElementById('coming-soon-modal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-
+// Function to show "Service Unavailable" modal
 function showServiceUnavailable() {
     document.getElementById('service-unavailable-modal').style.display = 'flex';
 }
 
+// Function to hide "Service Unavailable" modal
 function hideServiceUnavailable() {
     document.getElementById('service-unavailable-modal').style.display = 'none';
 }
 
+// Function to switch language
 function switchLanguage(language) {
     if (language === 'en') {
         document.documentElement.lang = 'en';

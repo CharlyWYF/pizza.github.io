@@ -558,8 +558,13 @@ h2::after,
 .menu-title,
 .cart-header h2 {
     font-size: 24px;
+    font-weight: bolder;
+    border: #cc0000;
+    font-style: italic;
+    text-shadow: #121212 ;
+    text-wrap: wrap;
     margin-bottom: 20px;
-    color: #ff0000;
+    color: #ecec00;
     /* Red color */
     text-transform: uppercase;
     /* Uppercase for emphasis */
@@ -635,4 +640,140 @@ h2::after,
 .indicator.active {
     background-color: #ff0000;
     /* Red */
+}
+
+
+/* General styles */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar,
+.footer {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.modal-content {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode styles */
+/* General styles */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar and Footer */
+.navbar,
+.footer {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Modal content */
+.modal-content {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar.dark-mode,
+.footer.dark-mode,
+.menu.dark-mode,
+.shopping-cart.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.search-container input.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+.language-switch-container.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.language-dropdown.dark-mode a {
+    color: #ffffff;
+    background-color: #1e1e1e;
+}
+
+.language-dropdown.dark-mode a:hover {
+    background-color: #333333;
+}
+
+.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode .cart-item {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+}
+
+.dark-mode .cart-item img {
+    border: 1px solid #333333;
+}
+
+.dark-mode .cart-item-info h3,
+.dark-mode .cart-item-info .cart-item-price,
+.dark-mode .cart-item-info .cart-item-quantity button,
+.dark-mode .subtotal span,
+.dark-mode .tax span,
+.dark-mode .total span {
+    color: #ffffff;
+}
+
+.dark-mode .quantity-decrease,
+.dark-mode .quantity-increase,
+.dark-mode .cart-item-remove {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+.dark-mode .quantity-decrease:hover,
+.dark-mode .quantity-increase:hover,
+.dark-mode .cart-item-remove:hover {
+    background-color: #555555;
+}
+
+.dark-mode .checkout {
+    background-color: #5d2525;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+.dark-mode .checkout:hover {
+    background-color: #555555;
+}
+
+/* Specific elements in main content */
+.dark-mode .menu-title,
+.dark-mode .product-title,
+.dark-mode .product-price,
+.dark-mode .add-button {
+    color: #ffffff;
+}
+
+.dark-mode .product-item {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+}
+
+.dark-mode .add-button {
+    background-color: #5d2525;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+.dark-mode .add-button:hover {
+    background-color: #555555;
 }
