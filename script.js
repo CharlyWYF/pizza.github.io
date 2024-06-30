@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="${imgSrc}" alt="${title}">
             <div class="cart-item-info">
                 <h3 class="cart-item-title">${title}</h3>
-                <div class="cart-item-price">AED ${price}</div>
+                <div class="cart-item-price">AED ${parseFloat(price).toFixed(2)}</div>
                 <div class="cart-item-quantity">
                     <button class="quantity-decrease">-</button>
                     <span class="quantity">1</span>
@@ -167,6 +167,14 @@ window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = 'none';
     }
+}
+
+function showServiceUnavailable() {
+    document.getElementById('service-unavailable-modal').style.display = 'flex';
+}
+
+function hideServiceUnavailable() {
+    document.getElementById('service-unavailable-modal').style.display = 'none';
 }
 
 function switchLanguage(language) {

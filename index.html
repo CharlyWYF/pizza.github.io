@@ -294,9 +294,19 @@
                     <span>Total:</span>
                     <span>$33.00</span>
                 </div>
-                <button class="checkout">Checkout</button>
+                <button class="checkout" onclick="showServiceUnavailable()">Checkout</button>
+
             </div>
+            
         </aside>
+
+<div id="service-unavailable-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="hideServiceUnavailable()">&times;</span>
+        <h2>Service temporarily unavailable</h2>
+        <p>This feature is currently unavailable. Please try again later.</p>
+    </div>
+</div>
 
 
 
